@@ -1,6 +1,6 @@
 # CRL Dictionary
 
-This module is a sample implementation of Dictionary API.
+Drupal 9 custom module demonstrating the use of Dictionary API.
 
 User can search for a word and view its definition, without refreshing the full page.
 
@@ -9,7 +9,7 @@ Path: ```/crl_dictionary```
 
 Enter word in search box and hit enter.
 
-See definitions, for each part of speech. 
+See definitions, for each part of speech.
 
 ### Dictionary API
 URL : ``` https://api.dictionaryapi.dev/api/v2/entries/en/<word> ```
