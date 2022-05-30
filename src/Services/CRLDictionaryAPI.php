@@ -2,6 +2,8 @@
 
 namespace Drupal\crl_dictionary\Services;
 
+define("API_CLIENT", "https://api.dictionaryapi.dev/api/v2/entries/en/");
+
 use Drupal\Core\Config\ConfigFactory;
 
 class CRLDictionaryAPI {
@@ -9,7 +11,7 @@ class CRLDictionaryAPI {
   protected string $apiClient;
 
   public function __construct(){
-    $this->apiClient =  "https://api.dictionaryapi.dev/api/v2/entries/en/";
+    $this->apiClient =  API_CLIENT;
   }
 
   public function getDefinitions($word){
