@@ -49,8 +49,13 @@ class CRLDictionaryForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function getDefinitions(array &$form, FormStateInterface $form_state) {
+  public function getDefinitions(array &$form, FormStateInterface $form_state): AjaxResponse
+  {
     $word = $form_state->getValue('field_word');
+
+    $definitions = \Drupal::service('crl_dictionary.api')->getDefinitions(urlencode($word));
+
+    \Drupal::logger('CRL_Dictionary')->warning('<pre><code>' . print_r($definitions, TRUE) . '</code></pre>');
     $build = [
       '#theme' => 'crl_dictionary_results',
       '#word' => $word
@@ -58,7 +63,7 @@ class CRLDictionaryForm extends FormBase {
 
     $response = new AjaxResponse();
     $response->addCommand(
-      new ReplaceCommand(
+      new HtmlCommand(
         '.result_message', $build
       ),
     );

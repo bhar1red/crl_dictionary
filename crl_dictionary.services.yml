@@ -1,0 +1,4 @@
+services:
+  crl_dictionary.api:
+    class: Drupal\crl_dictionary\Services\CRLDictionaryAPI
+    arguments: []
