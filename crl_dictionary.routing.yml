@@ -1,7 +1,8 @@
-crl_dictionary.view:
+crl_dictionary.form:
   path: '/crl_dictionary'
   defaults:
     _title: 'CRL Dictionary'
-    _controller: '\Drupal\crl_dictionary\Controller\CRLDictionary::content'
+    _form: '\Drupal\crl_dictionary\Form\CRLDictionaryForm'
   requirements:
     _permission: 'access content'
+
