@@ -8,7 +8,7 @@ function crl_dictionary_theme(): array
   return [
     'crl_dictionary_results' => [
       'theme' => 'crl_dictionary_results',
-      'variables' => ['word' => NULL, 'definitions' => NULL],
+      'variables' => ['word' => NULL, 'results' => NULL],
     ],
   ];
 }

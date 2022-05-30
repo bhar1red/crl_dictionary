@@ -14,6 +14,12 @@ class CRLDictionaryAPI {
 
   public function getDefinitions($word){
     $response = file_get_contents($this->apiClient.$word);
-    return json_decode($response);
+    if($response){
+      return json_decode($response);
+    }
+    else{
+      return false;
+    }
+
   }
 }

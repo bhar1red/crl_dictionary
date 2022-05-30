@@ -1,3 +1,16 @@
 <h2> {{ word }}</h2>
 
-<p> Here comes definitions. </p>
+{% if results == false %}
+  <p> No Definitions Found </p>
+
+{% else %}
+  {% for result in results %}
+    {{ result.word }}
+    {% for meaning in result.meanings %}
+      {{ meaning.partOfSpeech}}
+      {% for definition in meaning.definitions %}
+        <p> {{ definition.definition }}</p>
+      {%endfor%}
+      {%endfor%}
+  {% endfor %}
+{% endif %}

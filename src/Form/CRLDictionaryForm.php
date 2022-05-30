@@ -53,12 +53,14 @@ class CRLDictionaryForm extends FormBase {
   {
     $word = $form_state->getValue('field_word');
 
-    $definitions = \Drupal::service('crl_dictionary.api')->getDefinitions(urlencode($word));
+    $results = \Drupal::service('crl_dictionary.api')->getDefinitions(urlencode($word));
 
-    \Drupal::logger('CRL_Dictionary')->warning('<pre><code>' . print_r($definitions, TRUE) . '</code></pre>');
+    \Drupal::logger('CRL_Dictionary')->warning('<pre><code>' . print_r($results, TRUE) . '</code></pre>');
+
     $build = [
       '#theme' => 'crl_dictionary_results',
-      '#word' => $word
+      '#word' => $word,
+      '#results' => $results
     ];
 
     $response = new AjaxResponse();
