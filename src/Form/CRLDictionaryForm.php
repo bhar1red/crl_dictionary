@@ -50,13 +50,19 @@ class CRLDictionaryForm extends FormBase {
    * {@inheritdoc}
    */
   public function getDefinitions(array &$form, FormStateInterface $form_state) {
+    $word = $form_state->getValue('field_word');
+    $build = [
+      '#theme' => 'crl_dictionary_results',
+      '#word' => $word
+    ];
 
     $response = new AjaxResponse();
     $response->addCommand(
-      new HtmlCommand(
-        '.result_message',
-        '<div class="my_top_message">' . t('Word is @word', ['@word' => ($form_state->getValue('field_word'))]) . '</div>'),
+      new ReplaceCommand(
+        '.result_message', $build
+      ),
     );
+
     return $response;
   }
 
