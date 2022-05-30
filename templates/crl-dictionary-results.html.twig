@@ -4,13 +4,23 @@
   <p> No Definitions Found </p>
 
 {% else %}
+  <ol>
   {% for result in results %}
+    <li>
     {{ result.word }}
+      <ul>
     {% for meaning in result.meanings %}
-      {{ meaning.partOfSpeech}}
+      <li>
+      <span>{{ meaning.partOfSpeech}}</span>
+        <ol>
       {% for definition in meaning.definitions %}
-        <p> {{ definition.definition }}</p>
+        <li> {{ definition.definition }}</li>
       {%endfor%}
+        </ol>
+      </li>
       {%endfor%}
+      </ul>
+    </li>
   {% endfor %}
+  </ol>
 {% endif %}
